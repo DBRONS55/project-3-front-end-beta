@@ -158,6 +158,8 @@ export class AdminComponent implements OnInit {
       // }
 
   }
+
+  
   //Load all all Products
   loadProducts() {
     this.productService.getAllProductsService().subscribe(

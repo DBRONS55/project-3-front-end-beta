@@ -1,0 +1,28 @@
+<form (ngSubmit)="createBundle()">
+    <div class="container">
+        <div class="form-group">
+            <label for="usr">Name:</label>
+            <input type="text" class="form-control" id="usr">
+        </div>
+
+        <div class="form-group">
+            <label for="usr">Bundle Percentage</label>
+            <input type="text" class="form-control" id="usr">
+        </div>
+
+        <div class="dropdown">
+            <select>
+                <option>-- select product 1 --</option>
+                <option *ngFor="let product of product1">{{ product.productId }} - {{ product.productName }}</option>
+            </select>
+        </div>
+        <div class="dropdown">
+            <select>
+                <option>-- select product 2 --</option>
+                <option *ngFor="let product of product2">{{ product.productId }} - {{ product.productName }}</option>
+            </select>
+        </div>
+    </div>
+    <button type="submit">Create Bundle</button>
+</form>
+

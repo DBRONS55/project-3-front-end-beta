@@ -214,22 +214,38 @@
     Add Product 
   </button> 
 </div>
+
  
 
   
   <br><br>
   <h3 *ngIf="toggleBundleTable==false">Product & Discount Details</h3>
-  <table>
     <tr *ngIf="toggleBundleTable==false">
-      <th scope="col">Product Id </th>
-      <th scope="col">Product Name</th>
-      <th scope="col">Product Category</th>
-      <th scope="col">Product Percentage</th>
-      <th scope="col">Product Cost</th>
-      <th scope="col">Product Quantity</th>
+
+  
+  
+
+  
+  <br><br>
       <th scope="col">Product SKU</th>
       <th scope="col">Product Description</th>
       <th scope="col">Product Image</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Add</th>
+      <th></th>
+    </tr>
+    <h3 *ngIf="toggleBundleTable==true">Bundle Details</h3>
+    <tr *ngIf="toggleBundleTable==true">
+      <th scope="col">Bundle Id </th>
+      <th scope="col">Bundle Name</th>
+      <th scope="col">Bundle Category</th>
+      <th scope="col">Bundle Percentage</th>
+      <th scope="col">Bundle Cost</th>
+      <th scope="col">Bundle Quantity</th>
+      <th scope="col">Bundle SKU</th>
+      <th scope="col">Bundle Description</th>
+      <th scope="col">Bundle Image</th>
       <th scope="col">Update</th>
       <th scope="col">Delete</th>
       <th scope="col">Add</th>
@@ -279,7 +295,30 @@
     </td>
     </tr>
 
-  </table>
+    <tr *ngFor="let row of allBundles">
+     
+      <td *ngIf="toggleBundleTable==true">{{row.bundleId}}</td>
+      <td *ngIf="toggleBundleTable==true">{{row.bundleName}}</td>
+      <td *ngIf="toggleBundleTable==true">{{row.bundleCategory}}</td>
+      <td *ngIf="toggleBundleTable==true"></td>
+      <td *ngIf="toggleBundleTable==true">{{row.bundleCost | currency}}</td>
+      <td *ngIf="toggleBundleTable==true">{{row.bundleQty}}</td>
+      <td *ngIf="toggleBundleTable==true">{{row.bundleSku}}</td>
+      <td *ngIf="toggleBundleTable==true">{{row.bundleDescription}}</td>
+      <td *ngIf="toggleBundleTable==true"><img id="image-size" class="" src="{{row.imageUrl}}" width="90px" height="90px" />
+      </td>
+      <td *ngIf="toggleBundleTable==true"> <button (click)="onEditRow(row)" type="button" class="btn btn-success" data-bs-toggle="modal"
+          data-bs-target="#exampleModal" class="btn btn-info"><i class="fa fa-edit">Update</i></button>
+      </td>
+      <td *ngIf="toggleBundleTable==true"> <button (click)="deleteProduct(row.bundleId)" type="button" class="btn btn-secondary" data-bs-toggle=""
+          class="btn btn-danger"><i class="fa fa-trash-o">Delete</i></button>
+      </td>
+      <td *ngIf="toggleBundleTable==true"> <button (click)="onDiscountEditRow(row)" type="button" class="btn btn-success" data-bs-toggle="modal"
+        data-bs-target="#exampleModal4" class="btn btn-info"><i class="fa fa-edit" >Add Discount</i></button>
+    </td>
+    </tr>
+
+
   <br><br>
 
 
